@@ -1,126 +1,141 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Neuralins - Painel do Aluno</title>
-  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURALINS - Meus Cursos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Font: IBM Plex Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Ícones (Feather Icons) -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        body {
+            font-family: 'IBM Plex Mono', monospace;
+        }
+        /* Para os ícones Feather */
+        .icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            stroke-width: 2.5px;
+        }
+        .icon-sm {
+            width: 1rem;
+            height: 1rem;
+            stroke-width: 2px;
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <h1 class="logo">NEURA<span class="azul">LINS</span></h1>
-    <nav>
-      <a href="#">Cursos_</a>
-      <div class="search-container">
-        <button class="menu-btn">☰</button>
-        <input type="text" placeholder="Pesquisa">
-        <button class="search-btn">🔍</button>
-      </div>
+<body class="bg-black text-gray-200 font-mono">
+
+    <!-- Navegação Pós-Login (Aluno) -->
+    <nav class="container mx-auto max-w-7xl flex justify-between items-center py-6 px-4 md:px-0">
+        <h1 class="text-3xl font-bold text-white">NEURALINS_</h1>
+        <div class="hidden md:flex items-center space-x-8 text-sm">
+            <a href="#" class="text-blue-400 hover:text-white transition-colors">Meus Cursos_</a>
+            <a href="#" class="text-gray-300 hover:text-white transition-colors">Perfil_</a>
+            <a href="#" class="text-gray-500 hover:text-red-400 transition-colors">Sair</a>
+        </div>
+        <!-- Menu Mobile -->
+        <div class="md:hidden text-white text-2xl">
+            &#9776;
+        </div>
     </nav>
-  </header>
 
-  <section class="status">
-    [Certificados : 5 | Módulos : 24 | Em andamento : 5]
-  </section>
+    <!-- Linha Divisória -->
+    <div class="container mx-auto max-w-7xl border-b border-blue-500/30"></div>
 
-  <main>
-    <section class="andamento">
-      <h3>[ Em Andamento ] [Tags : ]</h3>
-      <div class="carrossel">
-        <button class="arrow"><</button>
-        <div class="cards">
-          <div class="card">
-            <h4>[Colorimetria - 67% - 12 Módulos]</h4>
-            <img src="https://i.imgur.com/WB2yDka.jpeg" alt="">
-            <div class="icons">
-              <button>🔗</button>
-              <button>💬</button>
-            </div>
-          </div>
-          <div class="card">
-            <h4>[Teoria das Cores - 99% - 12 Módulos]</h4>
-            <img src="https://i.imgur.com/FN9P1or.jpeg" alt="">
-            <div class="icons">
-              <button>🔗</button>
-              <button>💬</button>
-            </div>
-          </div>
-          <div class="card">
-            <h4>[Contraste - 98% - 12 Módulos]</h4>
-            <img src="https://i.imgur.com/9nWPA1v.jpeg" alt="">
-            <div class="icons">
-              <button>🔗</button>
-              <button>💬</button>
-            </div>
-          </div>
+    <!-- Conteúdo Principal: Meus Cursos -->
+    <main class="container mx-auto max-w-7xl py-12 px-4">
+        
+        <!-- Cabeçalho da Seção -->
+        <div class="mb-12">
+            <h2 class="text-3xl md:text-4xl font-bold text-blue-400 mb-4">[ MEUS CURSOS ]</h2>
+            <p class="text-lg text-gray-400">// Continue de onde você parou.</p>
         </div>
-        <button class="arrow">></button>
-      </div>
-    </section>
 
-    <section class="trilhas">
-      <h3>[ Trilha de Estudos ]</h3>
-      <div class="carrossel">
-        <button class="arrow"><</button>
-        <div class="cards">
-          <div class="card">
-            <h4>[Arte Clássica - 0% - 12 Módulos]</h4>
-            <img src="https://i.imgur.com/BmNYYrK.jpeg" alt="">
-            <div class="alunos">
-              <img src="https://i.pravatar.cc/40?img=8" alt="">
-              <img src="https://i.pravatar.cc/40?img=12" alt="">
-              <img src="https://i.pravatar.cc/40?img=15" alt="">
-              <button>+</button>
-            </div>
-            <p>127 Alunos</p>
-          </div>
+        <!-- Grid de Cursos Matriculados -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-          <div class="card">
-            <h4>[Arte Brasileira - 54% - 12 Módulos]</h4>
-            <img src="https://i.imgur.com/kCPXMC7.jpeg" alt="">
-            <div class="alunos">
-              <img src="https://i.pravatar.cc/40?img=16" alt="">
-              <img src="https://i.pravatar.cc/40?img=22" alt="">
-              <img src="https://i.pravatar.cc/40?img=27" alt="">
-              <button>+</button>
+            <!-- Card Curso 1: Em Andamento -->
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video bg-gray-800 rounded mb-4 flex items-center justify-center">
+                        <img src="https://placehold.co/400x225/111827/1e40af?text=Química" alt="Capa Química Industrial" class="w-full h-full object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">// Química Industrial</h3>
+                    <!-- Barra de Progresso -->
+                    <div class="mb-3">
+                        <p class="text-sm text-blue-300 mb-1">45% Concluído</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-blue-500 h-2.5 rounded-full" style="width: 45%"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">com Prof. Abel</p>
+                </div>
+                <!-- Botão -->
+                <a href="neuralins_pagina_aula.html" class="mt-6 block w-full text-center bg-blue-500 text-white py-3 px-4 rounded-md text-sm font-bold group-hover:bg-blue-400 transition-colors">
+                    Continuar A-prenda >
+                </a>
             </div>
-            <p>5546 Alunos</p>
-          </div>
 
-          <div class="card">
-            <h4>[Arte Asiática - 14% - 12 Módulos]</h4>
-            <img src="https://i.imgur.com/qRFpLRC.jpeg" alt="">
-            <div class="alunos">
-              <img src="https://i.pravatar.cc/40?img=31" alt="">
-              <img src="https://i.pravatar.cc/40?img=38" alt="">
-              <button>+</button>
+            <!-- Card Curso 2: Concluído -->
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700 hover:border-green-500/50 transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video bg-gray-800 rounded mb-4 flex items-center justify-center">
+                        <img src="https://placehold.co/400x225/111827/1e40af?text=UI/UX" alt="Capa UI/UX" class="w-full h-full object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">// Design de Interface (UI/UX)</h3>
+                    <!-- Barra de Progresso -->
+                    <div class="mb-3">
+                        <p class="text-sm text-green-400 font-bold mb-1">[ CONCLUÍDO ]</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <div class="bg-green-500 h-2.5 rounded-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">com Profa. Lia</p>
+                </div>
+                <!-- Botão -->
+                <a href="#" class="mt-6 block w-full text-center bg-gray-800 text-green-300 py-3 px-4 rounded-md text-sm font-bold group-hover:bg-gray-700 transition-colors">
+                    Ver Certificado >
+                </a>
             </div>
-            <p>998 Alunos</p>
-          </div>
+
+            <!-- Card Curso 3: Não Iniciado -->
+            <div class="bg-gray-900/50 p-6 rounded-lg border border-gray-700 hover:border-blue-500/50 transition-all group flex flex-col justify-between">
+                <div>
+                    <div class="aspect-video bg-gray-800 rounded mb-4 flex items-center justify-center">
+                        <img src="https://placehold.co/400x225/111827/1e40af?text=Python" alt="Capa Python" class="w-full h-full object-cover rounded">
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-400 mb-3">// Python para Análise de Dados</h3>
+                    <!-- Barra de Progresso -->
+                    <div class="mb-3">
+                        <p class="text-sm text-gray-500 mb-1">Ainda não iniciado</p>
+                        <div class="w-full bg-gray-700 rounded-full h-2.5">
+                            <!-- Sem barra de progresso interna -->
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-4">com Profa. Clara</p>
+                </div>
+                <!-- Botão -->
+                <a href="#" class="mt-6 block w-full text-center bg-gray-800 text-blue-300 py-3 px-4 rounded-md text-sm font-bold group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                    Começar Curso >
+                </a>
+            </div>
+
         </div>
-        <button class="arrow">></button>
-      </div>
-    </section>
 
-    <div class="progresso">
-      <div class="circulo"></div>
-      <p>[ Progresso Geral - 15% - 3 cursos e 3 trilhas ]</p>
-    </div>
-  </main>
+    </main>
 
-  <aside class="sidebar">
-    <div class="menu-icone">☰</div>
-    <div class="opcoes">
-      <button>✉️ Mail</button>
-      <button>💬 Chat</button>
-      <button>🧠 Spaces</button>
-      <button>📅 Meet</button>
-    </div>
-  </aside>
+    <!-- Footer -->
+    <footer class="text-center py-10 mt-16 border-t border-gray-800">
+        <p class="text-sm text-gray-500">[ NEURALINS v.2.1 ] // Copyright © 2077 // Todos os direitos reservados.</p>
+    </footer>
 
-  <footer>
-    [ NEURALINS_v2.5.1 ] // Copyright © 2077 // Todos os direitos reservados.
-  </footer>
+    <!-- Script para ativar os ícones -->
+    <script>
+        feather.replace();
+    </script>
 </body>
 </html>

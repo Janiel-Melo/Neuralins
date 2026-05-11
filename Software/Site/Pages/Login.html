@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuralins - Autenticação</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="CSS/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="icon" type="image/png" href="Images/neuralins_icon.png">
+</head>
+<body>
+<header class="main-navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="Images/neuralins_icon.png" alt="Neuralins" class="nav-logo">
+        <span class="nav-title">Neuralins</span>
+      </div>
+      <div class="nav-links">
+        <a href="#" class="nav-link">Suporte</a>
+        <a href="#" class="nav-link">Documentação</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="auth-container">
+    <section class="brand-panel">
+      <div class="brand-content">
+        <h1 class="brand-title">Neuralins</h1>
+        <p class="brand-subtitle">Tratamento e disponibilização de dados epistemicos</p>
+        
+        <div class="concept-box">
+          <p class="metaphor">
+            "Limpando e transformando dados brutos para facilitar suas novas descobertas."
+          </p>
+        </div>
+        
+        <div class="meandro-line"></div>
+      </div>
+    </section>
+
+    <section class="form-panel">
+      <div class="form-wrapper">
+        
+        <div class="tab-switcher">
+          <button class="tab-btn active" onclick="switchTab('login')">Entrar</button>
+          <button class="tab-btn" onclick="switchTab('register')">Registrar</button>
+        </div>
+
+        <div id="alert-box" class="alert-box hidden"></div>
+
+        <form id="form-login" class="auth-form active-form">
+          <div class="form-header">
+            <h2>Acessar Plataforma</h2>
+            <p>Insira suas credenciais para visualizar os dashboards.</p>
+          </div>
+
+          <div class="input-group">
+            <label for="login-email">E-mail Institucional</label>
+            <input type="email" id="login-email" required placeholder="pesquisador@instituicao.br">
+          </div>
+
+          <div class="input-group">
+            <label for="login-password">Senha</label>
+            <input type="password" id="login-password" required placeholder="••••••••">
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-login">
+            <a href="/Neuralins/Software/Site/Pages/dashboard.html" class="btn">
+                Autenticar
+            </a>
+            <div class="loader hidden"></div>
+          </button>
+        </form>
+
+        <form id="form-register" class="auth-form hidden-form">
+          <div class="form-header">
+            <h2>Criar Conta</h2>
+            <p>Cadastre-se para lapidar seus dados de saúde.</p>
+          </div>
+
+          <div class="input-group">
+            <label for="reg-name">Nome Completo</label>
+            <input type="text" id="reg-name" required placeholder="Dr. / Dra. Nome Sobrenome">
+          </div>
+
+          <div class="input-group">
+            <label for="reg-email">E-mail Institucional</label>
+            <input type="email" id="reg-email" required placeholder="pesquisador@instituicao.br">
+          </div>
+
+          <div class="input-group">
+            <label for="reg-password">Senha</label>
+            <input type="password" id="reg-password" required placeholder="Mínimo de 6 caracteres">
+          </div>
+
+          <button type="submit" class="btn-primary" id="btn-register">
+            <span class="btn-text">Finalizar Cadastro</span>
+            <div class="loader hidden"></div>
+          </button>
+        </form>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const supabaseUrl = 'https://baokzsyavwrchfulnoqo.supabase.co';
+    const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJhb2t6c3lhdndyY2hmdWxub3FvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjkxMzQ0NDQsImV4cCI6MjA4NDcxMDQ0NH0.YBrLaSfnNM3Ljo0PrDavSslRh4II336WvkuTULXOoTs';
+    const supabaseclient = supabase.createClient(supabaseUrl, supabaseKey);
+  </script>
+  <script src="Scripts/scripts.js"></script>
+</body>
+</html>

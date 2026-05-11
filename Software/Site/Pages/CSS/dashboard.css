@@ -1,0 +1,614 @@
+/* ==========================================================================
+   NEURALINS - DESIGN SYSTEM PREMIUM (DASHBOARD)
+   Conceito: Sabedoria, Estabilidade, Precisão e Minimalismo "Mármore"
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Paleta de Cores Estratégica */
+  --bg-marble: #F9F9F6;
+  --navy-aegean: #0F2C59;
+  --gold-layer: #D4AF37;
+  --gold-text: #3a2c00;
+  --terracotta: #C05C46;
+  --border-grid: #E8E8E4;
+  --surface-white: #FFFFFF;
+  
+  /* Tipografia */
+  --font-classic: 'Cinzel', serif;
+  --font-science: 'Inter', sans-serif;
+  
+  /* Sombras e Estruturas (Clean UI) */
+  --shadow-sm: 0 2px 8px rgba(15, 44, 89, 0.04);
+  --shadow-md: 0 8px 24px rgba(15, 44, 89, 0.08);
+  --radius-slab: 8px;
+  --radius-sm: 4px;
+}
+
+/* ==========================================================================
+   1. RESET E BASE
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.dashboard-body {
+  background-color: var(--bg-marble);
+  color: var(--navy-aegean);
+  font-family: var(--font-science);
+  padding-top: 80px; /* Espaço exato do Navbar fixo */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   2. NAVBAR SUPERIOR (A Estabilidade)
+   ========================================================================== */
+.main-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--surface-white);
+  border-bottom: 1px solid var(--border-grid);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-container {
+  max-width: 1500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-logo {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 2px 4px rgba(15, 44, 89, 0.1));
+}
+
+.nav-title {
+  font-family: var(--font-classic);
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--navy-aegean);
+}
+
+.nav-subtitle {
+  font-family: var(--font-science);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--gold-layer);
+  margin-left: -4px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--navy-aegean);
+  font-size: 0.9rem;
+  font-weight: 500;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.nav-link:hover, 
+.nav-link.active {
+  opacity: 1;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--gold-layer);
+  border-radius: 2px;
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-left: 1px solid var(--border-grid);
+  padding-left: 20px;
+}
+
+.user-role {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--navy-aegean);
+  background-color: var(--bg-marble);
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid var(--border-grid);
+}
+
+.btn-logout {
+  background: none;
+  border: none;
+  font-family: var(--font-science);
+  font-size: 0.85rem;
+  color: var(--terracotta);
+  cursor: pointer;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.btn-logout:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* ==========================================================================
+   3. AVISO DE GOVERNANÇA (DISCLAIMER)
+   ========================================================================== */
+.ethical-disclaimer {
+  background-color: rgba(15, 44, 89, 0.03);
+  border-bottom: 1px solid var(--border-grid);
+  padding: 12px 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--navy-aegean);
+}
+
+.ethical-disclaimer strong {
+  font-weight: 600;
+}
+
+.ethical-disclaimer strong:last-child {
+  color: var(--terracotta);
+}
+
+/* ==========================================================================
+   4. ESTRUTURA PRINCIPAL E FILTROS (RF10)
+   ========================================================================== */
+.dashboard-main {
+  max-width: 1500px;
+  margin: 40px auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.filter-bar {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-slab);
+  padding: 24px 32px;
+  display: flex;
+  gap: 24px;
+  align-items: flex-end;
+  box-shadow: var(--shadow-sm);
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.filter-group label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--navy-aegean);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.filter-group select {
+  width: 100%;
+  padding: 12px 16px;
+  background-color: var(--bg-marble);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-science);
+  font-size: 0.9rem;
+  color: var(--navy-aegean);
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+  appearance: auto; /* Mantém a seta nativa limpa */
+}
+
+.filter-group select:focus {
+  border-color: var(--navy-aegean);
+}
+
+.btn-secondary {
+  height: 45px;
+  padding: 0 28px;
+  background-color: var(--navy-aegean);
+  color: var(--surface-white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-science);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-secondary:hover {
+  background-color: #163b74;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   5. GRIDS E MÓDULOS DE "MÁRMORE" (CARDS)
+   ========================================================================== */
+.grid-dashboard {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.card-module {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-slab);
+  padding: 32px;
+  box-shadow: var(--shadow-md);
+}
+
+.module-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-grid);
+}
+
+.module-header h2 {
+  font-family: var(--font-classic);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy-aegean);
+  letter-spacing: 0.5px;
+}
+
+.module-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+/* Badges Exclusivos */
+.badge-gold {
+  background-color: rgba(212, 175, 55, 0.1);
+  color: var(--gold-text);
+  border: 1px solid var(--gold-layer);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.badge-terracotta {
+  background-color: rgba(192, 92, 70, 0.1);
+  color: var(--terracotta);
+  border: 1px solid var(--terracotta);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* ==========================================================================
+   6. MAPA LEAFLET E GRÁFICOS (A Precisão)
+   ========================================================================== */
+.map-container-wrapper {
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-slab);
+  overflow: hidden;
+  margin-bottom: 30px;
+  box-shadow: var(--shadow-sm);
+}
+
+.interactive-map {
+  width: 100%;
+  height: 420px;
+  background-color: #EAEAEA;
+  z-index: 1; /* Garante que não sobreponha o navbar */
+}
+
+.map-legend {
+  background-color: var(--surface-white);
+  padding: 16px 24px;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  border-top: 1px solid var(--border-grid);
+  font-size: 0.85rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--navy-aegean);
+  font-weight: 500;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.dot-navy { background-color: var(--navy-aegean); }
+.dot-gold { background-color: var(--gold-layer); }
+.dot-terra { background-color: var(--terracotta); }
+
+.chart-container-wrapper {
+  background-color: var(--bg-marble);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-slab);
+  padding: 24px;
+}
+
+.chart-container-wrapper h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--navy-aegean);
+  margin-bottom: 20px;
+}
+
+/* Customização Premium dos Popups do Leaflet */
+.leaflet-popup-content-wrapper {
+  background: var(--surface-white) !important;
+  color: var(--navy-aegean) !important;
+  border-radius: var(--radius-sm) !important;
+  border: 1px solid var(--border-grid);
+  box-shadow: var(--shadow-md) !important;
+  padding: 4px !important;
+}
+
+.leaflet-popup-title {
+  font-family: var(--font-science);
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--terracotta);
+  margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   7. PAINEL DE ALERTAS DE RISCO (Outliers - Terracota)
+   ========================================================================== */
+.alerts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.alert-card {
+  background-color: var(--bg-marble);
+  border: 1px solid var(--border-grid);
+  border-left: 4px solid var(--terracotta);
+  border-radius: var(--radius-sm);
+  padding: 20px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.alert-card:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.alert-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--terracotta);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.alert-details {
+  font-size: 0.85rem;
+  color: var(--navy-aegean);
+  margin-bottom: 8px;
+}
+
+.alert-reason {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   8. TABELA DE RASTREABILIDADE (Módulo de Coleta RAW)
+   ========================================================================== */
+.table-module {
+  margin-bottom: 60px;
+}
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.upload-area {
+  margin-left: 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--gold-layer);
+  color: var(--gold-text);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-science);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+  border: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-slab);
+  box-shadow: var(--shadow-sm);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  background-color: var(--surface-white);
+  font-size: 0.85rem;
+}
+
+.data-table th {
+  background-color: var(--navy-aegean);
+  color: var(--surface-white);
+  padding: 16px 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.data-table td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-grid);
+  color: var(--navy-aegean);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.data-table tr:last-child td {
+  border-bottom: none;
+}
+
+.data-table tr:hover td {
+  background-color: var(--bg-marble);
+}
+
+/* Status e Ações na Tabela */
+.status-ok {
+  color: #2e7d32;
+  font-weight: 600;
+  background-color: rgba(46, 125, 50, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.status-review {
+  color: var(--terracotta);
+  font-weight: 600;
+  background-color: rgba(192, 92, 70, 0.1);
+  padding: 4px 10px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+.btn-action {
+  padding: 8px 12px;
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-science);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--navy-aegean);
+  transition: all 0.2s;
+}
+
+.btn-action:hover {
+  background-color: var(--gold-layer);
+  color: var(--gold-text);
+  border-color: var(--gold-layer);
+}
+
+/* ==========================================================================
+   9. RESPONSIVIDADE PRECISA
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .grid-dashboard {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav-container, 
+  .dashboard-main {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 20px;
+  }
+  
+  .module-header.flex-between {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  
+  .upload-area {
+    margin-left: 0;
+    width: 100%;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .nav-links {
+    display: none; /* Em mobile, exigiria um menu hambúrguer */
+  }
+}

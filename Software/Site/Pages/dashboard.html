@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuralins - Dashboard de Pesquisa (Gold)</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="CSS/dashboard.css">
+  
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="dashboard-body">
+
+  <header class="main-navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="Images/neuralins_icon.png" alt="Logo Neuralins" class="nav-logo">
+        <span class="nav-title">NEURALINS</span>
+        <span class="nav-subtitle">| SP</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#visualizacao" class="nav-link active">Visualização (Gold)</a>
+        <a href="/Neuralins/Software/Site/Pages/portal.html" class="nav-link">Portal do cidadão</a>
+        <a href="#relatorios" class="nav-link" onclick="exportGoldReport()">Exportar Insights (RF13)</a>
+      </nav>
+      <div class="user-profile">
+        <span class="user-role">Pesquisador(a)</span>
+        <button class="btn-logout" onclick="logout()">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ethical-disclaimer">
+    <p><strong>Aviso de Uso (Governança):</strong> Esta plataforma é uma ferramenta de suporte à decisão e pesquisa focada na população acima de 60 anos em SP. <strong>Não substitui diagnóstico médico clínico nem prescreve tratamentos.</strong></p>
+  </div>
+
+  <main class="dashboard-main">
+
+    <section class="filter-bar">
+      <div class="filter-group">
+        <label for="filter-age">Faixa Etária Alvo</label>
+        <select id="filter-age">
+          <option value="all" selected>Todos (60+)</option>
+          <option value="60-70">60 a 70 anos</option>
+          <option value="71-80">71 a 80 anos</option>
+          <option value="80+">Acima de 80 anos</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-region">Subprefeitura (SP)</label>
+        <select id="filter-region">
+          <option value="todas" selected>Todas as Regiões</option>
+          <option value="se">Sé</option>
+          <option value="pinheiros">Pinheiros</option>
+          <option value="santo-amaro">Santo Amaro</option>
+          <option value="itaquera">Itaquera</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label for="filter-period">Período</label>
+        <select id="filter-period">
+          <option value="12m">Últimos 12 meses</option>
+          <option value="24m">Últimos 24 meses</option>
+        </select>
+      </div>
+      <button class="btn-secondary" onclick="applyFilters()">Aplicar Filtros</button>
+    </section>
+
+    <div class="grid-dashboard">
+      
+      <section class="card-module map-module" id="visualizacao">
+        <div class="module-header">
+          <h2>Mapeamento Georreferenciado & Evolução (Gold)</h2>
+          <span class="badge-gold">Camada Lapidada</span>
+        </div>
+        
+        <div class="map-container-wrapper">
+          <div id="real-map" class="interactive-map"></div>
+          <div class="map-legend">
+            <span><strong>Densidade:</strong></span>
+            <span class="legend-item"><span class="dot dot-navy"></span> Baixa (Azul Egeu)</span>
+            <span class="legend-item"><span class="dot dot-gold"></span> Média (Dourado)</span>
+            <span class="legend-item"><span class="dot dot-terra"></span> Alerta Crítico (Terracota)</span>
+          </div>
+        </div>
+
+        <div class="chart-container-wrapper">
+          <h3>Taxa de Progressão do Declínio Cognitivo (RF11)</h3>
+          <canvas id="evolutionChart" height="100"></canvas>
+        </div>
+      </section>
+
+      <section class="card-module alerts-module">
+        <div class="module-header">
+          <h2>Alertas de Desvio (Outliers)</h2>
+          <span class="badge-terracotta">Atenção Crítica</span>
+        </div>
+        <p class="module-desc">Grupos com variação estatística fora do padrão (> 3 desvios padrão ou declínio acelerado em 20%).</p>
+        
+        <div class="alerts-list" id="alerts-container">
+          <div class="alert-card terracotta-alert">
+            <div class="alert-title">Declínio Acelerado Detectado (RN10)</div>
+            <div class="alert-details">Região: <strong>Sé</strong> | Faixa: <strong>71-80 anos</strong></div>
+            <div class="alert-reason">Taxa de progressão 24% superior à média histórica do DataSUS.</div>
+          </div>
+          
+          <div class="alert-card terracotta-alert">
+            <div class="alert-title">Inconsistência de Sensor (RN07)</div>
+            <div class="alert-details">Origem: <strong>Creyos (API)</strong> | Paciente ID: #9842</div>
+            <div class="alert-reason">Escore 3 desvios padrão abaixo do limiar. Marcado para revisão.</div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <section class="card-module table-module" id="coleta">
+      <div class="module-header flex-between">
+        <div>
+          <h2>Módulo de Coleta e Rastreabilidade</h2>
+          <p class="module-desc">Interface dos Dados Brutos (Raw) inalterados com status de conformidade COPIS.</p>
+        </div>
+        <div class="upload-area">
+          <input type="file" id="data-upload" accept=".csv, .json, .xlsx" hidden onchange="handleFileUpload(event)">
+          <label for="data-upload" class="btn-primary">Upload de Dados (RF02)</label>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Título</th>
+              <th>Dados</th>
+              <th>Formato</th>
+              <th>Origem</th>
+              <th>Coleta (Neuralins)</th>
+              <th>Responsável</th>
+              <th>Coleta (Origem)</th>
+              <th>Integridade</th>
+              <th>NaN’s</th>
+              <th>Tamanho</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+          <tbody id="raw-data-tbody">
+            </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="Scripts/dashboard.js"></script>
+</body>
+</html>

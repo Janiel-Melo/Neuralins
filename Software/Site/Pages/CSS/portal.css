@@ -1,0 +1,488 @@
+/* ==========================================================================
+   NEURALINS - PORTAL DO CIDADÃO (CSS EXCLUSIVO)
+   Conceito: Acessibilidade, Empatia, Sabedoria e Clareza Visual
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  /* Cores da Identidade Visual Crítica */
+  --bg-marble: #F9F9F6;
+  --navy-aegean: #0F2C59;
+  --gold-layer: #D4AF37;
+  --terracotta: #C05C46;
+  --border-grid: #E8E8E4;
+  --surface-white: #FFFFFF;
+  
+  --font-classic: 'Cinzel', serif;
+  --font-text: 'Inter', sans-serif;
+  
+  --shadow-soft: 0 4px 16px rgba(15, 44, 89, 0.06);
+  --shadow-card: 0 8px 24px rgba(15, 44, 89, 0.08);
+  --radius-lg: 12px;
+}
+
+/* Reset e Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body.portal-body {
+  background-color: var(--bg-marble);
+  color: var(--navy-aegean);
+  font-family: var(--font-text);
+  padding-top: 80px;
+  line-height: 1.6;
+  font-size: 16px; /* Tamanho base maior para leiturabilidade */
+}
+
+/* ==========================================================================
+   Navbar Público
+   ========================================================================== */
+.public-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  background-color: var(--surface-white);
+  border-bottom: 1px solid var(--border-grid);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  box-shadow: var(--shadow-soft);
+}
+
+.nav-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.nav-logo {
+  height: 42px;
+  width: auto;
+}
+
+.nav-title {
+  font-family: var(--font-classic);
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--navy-aegean);
+  letter-spacing: 2px;
+}
+
+.nav-badge {
+  background-color: rgba(15, 44, 89, 0.08);
+  color: var(--navy-aegean);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 25px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--navy-aegean);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: var(--gold-layer);
+}
+
+.btn-login-link {
+  text-decoration: none;
+  background-color: var(--navy-aegean);
+  color: var(--surface-white);
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: opacity 0.2s;
+}
+
+.btn-login-link:hover {
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   Hero Section (Acolhimento)
+   ========================================================================== */
+.hero-section {
+  background: linear-gradient(135deg, var(--navy-aegean) 0%, #0a1b35 100%);
+  color: var(--surface-white);
+  padding: 80px 30px;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-family: var(--font-classic);
+  font-size: 2.5rem;
+  color: var(--gold-layer);
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.15rem;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* Aviso de Saúde Pública */
+.public-disclaimer {
+  background-color: #fff9e6; /* Fundo levemente aquecido para alerta empático */
+  border-bottom: 2px solid var(--gold-layer);
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--navy-aegean);
+}
+
+.public-disclaimer strong {
+  color: var(--terracotta);
+}
+
+/* ==========================================================================
+   Conteúdo Principal e Cards Explicativos
+   ========================================================================== */
+.portal-main {
+  max-width: 1200px;
+  margin: 50px auto;
+  padding: 0 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+.block-header {
+  margin-bottom: 30px;
+}
+
+.block-header h2 {
+  font-family: var(--font-classic);
+  font-size: 1.8rem;
+  color: var(--navy-aegean);
+}
+
+.meandro-line {
+  height: 3px;
+  width: 60px;
+  background-color: var(--gold-layer);
+  margin-top: 10px;
+}
+
+.text-center { text-align: center; }
+.text-center .meandro-line { margin: 10px auto 0 auto; }
+
+.text-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.text-card {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  box-shadow: var(--shadow-soft);
+}
+
+.text-card h3 {
+  font-size: 1.3rem;
+  color: var(--navy-aegean);
+  margin-bottom: 15px;
+}
+
+.text-card p {
+  color: #555;
+  font-size: 1.05rem;
+}
+
+.highlight-card {
+  border-left: 6px solid var(--terracotta);
+  background-color: rgba(192, 92, 70, 0.02);
+}
+
+/* ==========================================================================
+   Showcase de Gráficos (Didáticos)
+   ========================================================================== */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.chart-box {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-lg);
+  padding: 35px;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+}
+
+.chart-box h3 {
+  font-size: 1.25rem;
+  color: var(--navy-aegean);
+  margin-bottom: 8px;
+}
+
+.chart-desc {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.canvas-wrapper {
+  position: relative;
+  width: 100%;
+  height: 260px; /* Altura fixa para estabilidade do canvas */
+  margin-bottom: 20px;
+}
+
+.chart-footer-text {
+  margin-top: auto;
+  padding-top: 15px;
+  border-top: 1px solid var(--border-grid);
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+}
+
+.indicator-gold { color: #b59015; }
+.indicator-terra { color: var(--terracotta); }
+
+/* ==========================================================================
+   Seção do Mapa (Cidadão)
+   ========================================================================== */
+.public-map-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background-color: var(--surface-white);
+}
+
+.citizen-map {
+  height: 450px;
+  width: 100%;
+  background-color: #EAEAEA;
+}
+
+.map-instructions {
+  padding: 40px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: var(--bg-marble);
+  border-left: 1px solid var(--border-grid);
+}
+
+.map-instructions h4 {
+  font-size: 1.2rem;
+  color: var(--navy-aegean);
+  margin-bottom: 15px;
+}
+
+.map-instructions p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Customização dos Popups do Leaflet voltados ao Público */
+.leaflet-popup-content-wrapper {
+  background: var(--surface-white) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1) !important;
+  padding: 5px 10px !important;
+  font-family: var(--font-text);
+}
+.public-popup-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--navy-aegean);
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--border-grid);
+  padding-bottom: 5px;
+}
+.public-popup-desc {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 5px;
+}
+
+/* ==========================================================================
+   Bloco de Privacidade (LGPD)
+   ========================================================================== */
+.privacy-block {
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-grid);
+  border-radius: var(--radius-lg);
+  padding: 50px;
+  box-shadow: var(--shadow-soft);
+}
+
+.privacy-content h2 {
+  font-family: var(--font-classic);
+  font-size: 1.8rem;
+  color: var(--navy-aegean);
+  text-align: center;
+}
+
+.lead-text {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 30px;
+}
+
+.pillar-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.pillar-number {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(212, 175, 55, 0.2);
+  color: var(--navy-aegean);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-classic);
+  font-size: 1.3rem;
+  font-weight: 700;
+  border: 2px solid var(--gold-layer);
+  margin-bottom: 15px;
+}
+
+.pillar-item h4 {
+  font-size: 1.1rem;
+  color: var(--navy-aegean);
+  margin-bottom: 10px;
+}
+
+.pillar-item p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* ==========================================================================
+   Rodapé Institucional
+   ========================================================================== */
+.public-footer {
+  background-color: var(--navy-aegean);
+  color: var(--surface-white);
+  padding: 50px 30px;
+  margin-top: 60px;
+  border-top: 4px solid var(--gold-layer);
+}
+
+.footer-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.footer-info h3 {
+  font-family: var(--font-classic);
+  color: var(--gold-layer);
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.footer-info p {
+  font-size: 0.9rem;
+  opacity: 0.8;
+  max-width: 400px;
+}
+
+.copyright {
+  margin-top: 20px;
+  font-size: 0.8rem !important;
+  opacity: 0.5 !important;
+}
+
+.footer-support h4 {
+  color: var(--gold-layer);
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.footer-support p {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+}
+
+.footer-support strong {
+  color: var(--surface-white);
+  font-size: 1.1rem;
+}
+
+/* ==========================================================================
+   Responsividade
+   ========================================================================== */
+@media (max-width: 992px) {
+  .charts-grid, 
+  .public-map-wrapper, 
+  .pillars-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .canvas-wrapper { height: 220px; }
+  .map-instructions { border-left: none; border-top: 1px solid var(--border-grid); }
+}
+
+@media (max-width: 768px) {
+  .text-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .hero-content h1 { font-size: 2rem; }
+  .privacy-block { padding: 30px; }
+}

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Neuralins - Portal do Cidadão</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <link rel="stylesheet" href="CSS/portal.css">
+  
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="portal-body">
+
+  <header class="public-navbar">
+    <div class="nav-container">
+      <div class="nav-brand">
+        <img src="Images/neuralins_icon.png" alt="Logo Neuralins" class="nav-logo">
+        <span class="nav-title">NEURALINS</span>
+        <span class="nav-badge">Portal do Cidadão</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#entenda" class="nav-link">O que é o Projeto?</a>
+        <a href="#graficos" class="nav-link">Entenda os Gráficos</a>
+        <a href="#mapa" class="nav-link">Mapa de Apoio</a>
+        <a href="#privacidade" class="nav-link">Sua Privacidade</a>
+      </nav>
+      <a href="dashboard.html" class="btn-login-link">Acesso Pesquisador</a>
+    </div>
+  </header>
+
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1>Cuidando da Memória de São Paulo</h1>
+      <p>Apoiando a ciência e a saúde pública para identificar precocemente o declínio cognitivo na população acima de 60 anos, com total respeito e anonimato.</p>
+    </div>
+  </section>
+
+  <div class="public-disclaimer">
+    <p><strong>Importante:</strong> As informações abaixo servem para conscientização e apoio à pesquisa científica. <strong>Se você ou um familiar apresenta esquecimentos frequentes, procure uma Unidade Básica de Saúde (SUS) ou um médico geriatra.</strong></p>
+  </div>
+
+  <main class="portal-main">
+
+    <section id="entenda" class="info-block">
+      <div class="block-header">
+        <h2>Por que monitorar a memória?</h2>
+        <div class="meandro-line"></div>
+      </div>
+      <div class="text-grid">
+        <div class="text-card">
+          <h3>O Envelhecimento Natural</h3>
+          <p>É normal que, com o passar dos anos, o nosso cérebro passe por mudanças. Esquecer onde colocou as chaves de vez em quando ou o nome de alguém que não vê há muito tempo faz parte do envelhecimento saudável.</p>
+        </div>
+        <div class="text-card highlight-card">
+          <h3>O Sinal de Alerta</h3>
+          <p>O problema surge quando o esquecimento afeta a rotina diária, como se perder em caminhos conhecidos ou esquecer se tomou medicações vitais. O <strong>Neuralins</strong> ajuda os cientistas a entenderem a diferença entre o envelhecimento comum e o início de um declínio que precisa de atenção.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="graficos" class="charts-showcase">
+      <div class="block-header text-center">
+        <h2>Entendendo a Saúde Mental em Dados Visuais</h2>
+        <p>Como os cientistas enxergam a evolução da nossa cognição</p>
+      </div>
+
+      <div class="charts-grid">
+        <div class="chart-box">
+          <h3>Evolução da Memória com o Tempo</h3>
+          <p class="chart-desc">Comparação entre o envelhecimento natural e o declínio acelerado sem acompanhamento prévio.</p>
+          <div class="canvas-wrapper">
+            <canvas id="publicAgingChart"></canvas>
+          </div>
+          <div class="chart-footer-text">
+            <span class="indicator-gold">● Envelhecimento Saudável</span>
+            <span class="indicator-terra">● Declínio que requer atenção médica</span>
+          </div>
+        </div>
+
+        <div class="chart-box">
+          <h3>Pilares da Proteção da Memória</h3>
+          <p class="chart-desc">Atividades do dia a dia que estudos científicos associam à preservação da saúde do cérebro.</p>
+          <div class="canvas-wrapper">
+            <canvas id="protectionChart"></canvas>
+          </div>
+          <div class="chart-footer-text text-center">
+            <span>Dados baseados em consensos globais de neurociência</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mapa" class="map-section">
+      <div class="block-header">
+        <h2>Mapeamento da Pesquisa em São Paulo</h2>
+        <p>Veja as regiões da cidade onde os dados anonimizados estão ajudando a gerar estudos de prevenção.</p>
+      </div>
+      
+      <div class="public-map-wrapper">
+        <div id="citizen-map" class="citizen-map"></div>
+        <div class="map-instructions">
+          <h4>Como interagir com o mapa?</h4>
+          <p>Clique nos círculos coloridos para ver como os pesquisadores estão analisando os dados de saúde daquela região para melhorar o atendimento público no futuro.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="privacidade" class="privacy-block">
+      <div class="privacy-content">
+        <h2>Seus Dados, Sua Segurança</h2>
+        <p class="lead-text">O Neuralins segue rigorosamente a <strong>Lei Geral de Proteção de Dados (LGPD)</strong>.</p>
+        
+        <div class="pillars-grid">
+          <div class="pillar-item">
+            <div class="pillar-number">1</div>
+            <h4>Anonimato Total</h4>
+            <p>Nomes, CPFs e endereços exatos são apagados antes que qualquer cientista tenha acesso aos dados. Você nunca será identificado.</p>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-number">2</div>
+            <h4>Criptografia de Ponta</h4>
+            <p>As informações são transformadas em códigos indecifráveis (segurança de nível bancário) para transitar na internet.</p>
+          </div>
+          <div class="pillar-item">
+            <div class="pillar-number">3</div>
+            <h4>Uso Exclusivo para o Bem</h4>
+            <p>Os dados servem apenas para criar estatísticas públicas e estudos científicos em parceria com órgãos oficiais de saúde.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="public-footer">
+    <div class="footer-container">
+      <div class="footer-info">
+        <h3>NEURALINS</h3>
+        <p>Coleta e Disponibilização de Dados da Saúde Mental do Cidadão Paulista.</p>
+        <p class="copyright">© 2026 Projeto Integrador. Todos os direitos reservados.</p>
+      </div>
+      <div class="footer-support">
+        <h4>Canais de Ajuda Pública em SP</h4>
+        <p>Disque Saúde (SUS): <strong>136</strong></p>
+        <p>SAMU (Emergências): <strong>192</strong></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Scripts/portal.js"></script>
+</body>
+</html>
